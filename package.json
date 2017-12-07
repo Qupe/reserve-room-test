@@ -2,6 +2,7 @@
   "name": "reserve-test",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "https://qupe.github.io/reserve-room-test/",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "node-sass-chokidar": "0.0.3",
