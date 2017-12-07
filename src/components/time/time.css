@@ -1,0 +1,24 @@
+.time {
+  float: right;
+  width: 50%;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 5px 3px;
+  box-sizing: border-box;
+  text-align: center; }
+  .time:hover {
+    background: #efefef; }
+  .time_reserved {
+    background: #cbcbcb;
+    color: #ffffff;
+    cursor: not-allowed; }
+    .time_reserved:hover {
+      background: #cbcbcb; }
+    .time_reserved .time__plus {
+      display: none; }
+  .time_disabled {
+    cursor: not-allowed; }
+    .time_disabled:hover {
+      background: none; }
+  .time:nth-child(odd) {
+    float: left; }

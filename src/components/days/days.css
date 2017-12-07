@@ -1,0 +1,8 @@
+.days {
+  overflow: hidden;
+  margin-bottom: 10px;
+  white-space: nowrap; }
+  @media (max-width: 750px) {
+    .days {
+      display: inline-block;
+      vertical-align: top; } }

@@ -1,0 +1,18 @@
+.switcher {
+  background: #efefef;
+  position: relative;
+  line-height: 35px;
+  text-align: center;
+  text-transform: capitalize; }
+  .switcher__button {
+    position: absolute;
+    cursor: pointer;
+    top: 0; }
+    .switcher__button_prev {
+      left: 0; }
+    .switcher__button_next {
+      right: 0; }
+    .switcher__button-icon {
+      width: 32px;
+      height: 32px;
+      vertical-align: middle; }

@@ -1,0 +1,41 @@
+@import "../../helpers/variables.scss";
+
+.time {
+  float: right;
+  width: 50%;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 5px 3px;
+  box-sizing: border-box;
+  text-align: center;
+
+  &:hover {
+    background: #efefef;
+  }
+
+  &_reserved {
+    background: #cbcbcb;
+    color: #ffffff;
+    cursor: not-allowed;
+
+    &:hover {
+      background: #cbcbcb;
+    }
+
+    .time__plus {
+      display: none;
+    }
+  }
+
+  &_disabled {
+    cursor: not-allowed;
+
+    &:hover {
+      background: none;
+    }
+  }
+
+  &:nth-child(odd) {
+    float: left;
+  }
+}

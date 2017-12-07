@@ -1,0 +1,22 @@
+.names {
+  overflow: hidden;
+  white-space: nowrap; }
+  @media (max-width: 750px) {
+    .names {
+      display: inline-block;
+      vertical-align: top; } }
+  .names__item {
+    text-align: center;
+    width: 20%;
+    float: left;
+    border-left: 1px solid #ffffff;
+    box-sizing: border-box;
+    padding: 10px; }
+    @media (max-width: 750px) {
+      .names__item {
+        display: inline-block;
+        float: none;
+        width: 300px;
+        vertical-align: top; } }
+    .names__item_current {
+      font-weight: bold; }

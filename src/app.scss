@@ -1,0 +1,52 @@
+@import "./helpers/variables.scss";
+
+.app {
+  padding: 20px;
+  overflow: hidden;
+
+  @media ($larger-than-desktop) {
+    padding: 10px;
+  }
+
+  @media ($larger-than-tablet) {
+    padding: 10px;
+  }
+
+  &__sidebar {
+    float: left;
+    width: 15%;
+
+    @media ($larger-than-desktop) {
+      width: 13%;
+    }
+
+    &-title {
+      padding-left: 20px;
+      line-height: 35px;
+      box-sizing: border-box;
+      margin-bottom: 38px;
+
+      @media ($larger-than-tablet) {
+        visibility: hidden;
+      }
+    }
+  }
+
+  &__content {
+    float: left;
+    width: 85%;
+
+    @media ($larger-than-desktop) {
+      width: 87%;
+    }
+
+    &-calendar {
+      overflow: hidden;
+
+      @media ($larger-than-tablet) {
+        overflow: auto;
+      }
+    }
+
+  }
+}

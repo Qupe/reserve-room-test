@@ -1,0 +1,31 @@
+@import "../../helpers/variables.scss";
+
+.names {
+  overflow: hidden;
+  white-space: nowrap;
+
+  @media ($larger-than-tablet) {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &__item {
+    text-align: center;
+    width: 20%;
+    float: left;
+    border-left: 1px solid #ffffff;
+    box-sizing: border-box;
+    padding: 10px;
+
+    @media ($larger-than-tablet) {
+      display: inline-block;
+      float: none;
+      width: 300px;
+      vertical-align: top;
+    }
+
+    &_current {
+      font-weight: bold;
+    }
+  }
+}

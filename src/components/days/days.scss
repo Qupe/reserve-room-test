@@ -1,0 +1,12 @@
+@import "../../helpers/variables.scss";
+
+.days {
+  overflow: hidden;
+  margin-bottom: 10px;
+  white-space: nowrap;
+
+  @media ($larger-than-tablet) {
+    display: inline-block;
+    vertical-align: top;
+  }
+}

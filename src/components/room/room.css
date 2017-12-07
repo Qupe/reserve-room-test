@@ -1,0 +1,25 @@
+.room {
+  height: 142px;
+  margin-bottom: 10px;
+  padding: 20px;
+  box-sizing: border-box; }
+  @media (max-width: 550px) {
+    .room {
+      padding: 15px; } }
+  @media (max-width: 750px) {
+    .room__text {
+      font-size: 10px;
+      writing-mode: tb-rl; } }
+  @media (max-width: 1000px) {
+    .room__text {
+      font-size: 12px; } }
+  .room_yellow {
+    background: rgba(255, 235, 135, 0.5); }
+  .room_red {
+    background: rgba(255, 87, 79, 0.5); }
+  .room_green {
+    background: rgba(74, 163, 58, 0.5); }
+  .room_blue {
+    background: rgba(95, 90, 255, 0.5); }
+  .room_purple {
+    background: rgba(174, 85, 182, 0.5); }

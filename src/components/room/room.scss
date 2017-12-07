@@ -1,0 +1,43 @@
+@import "../../helpers/variables.scss";
+
+.room {
+  height: 142px;
+  margin-bottom: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+
+  @media ($larger-than-phablet) {
+    padding: 15px;
+  }
+
+  &__text {
+    @media ($larger-than-tablet) {
+      font-size: 10px;
+      writing-mode: tb-rl;
+    }
+
+    @media ($larger-than-desktop) {
+      font-size: 12px;
+    }
+  }
+
+  &_yellow {
+    background: rgba(#ffeb87, 0.5);
+  }
+
+  &_red {
+    background: rgba(#ff574f, 0.5);
+  }
+
+  &_green {
+    background: rgba(#4aa33a, 0.5);
+  }
+
+  &_blue {
+    background: rgba(#5f5aff, 0.5);
+  }
+
+  &_purple {
+    background: rgba(#ae55b6, 0.5);
+  }
+}
