@@ -47,54 +47,32 @@ class App extends Component {
 
         this.state = {
             date: date,
-            daysInMonth: this.calcDays(date)
+            daysInWeek: this.calcDays(date)
         };
     }
 
-    setDays(currentDate) {
+    setDays(date) {
         this.setState({
-            date: currentDate,
-            daysInMonth: this.calcDays(currentDate)
+            date: date,
+            daysInWeek: this.calcDays(date)
         });
     }
 
-    calcDays(currentDate) {
-        let date = new Date(),
-            currentWeekDay = currentDate.getDay(),
-            currentDay = currentDate.getDate(),
+    calcDays(date) {
+        let currentDate = new Date(),
+            currentWeekDay = date.getDay(),
+            fday = new Date(date.setDate(date.getDate() - (currentWeekDay - 1))).getDate(),
             days = [];
 
-        date.setHours(0, 0, 0, 0);
         currentDate.setHours(0, 0, 0, 0);
 
-        days.push({
-            number: currentDay,
-            current: currentDate.getTime() === date.getTime() ? true : false,
-            passed: currentDate < date ? true : false,
-            uid: currentDate.getFullYear() + '_' + currentDate.getMonth() + '_' + currentDate.getDate()
-        });
-
-        while (currentWeekDay > 1) {
-            let tmpDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), --currentDay);
-            currentWeekDay--;
-            days.unshift({
-                number: tmpDate.getDate(),
-                current: false,
-                passed: tmpDate < date ? true : false,
-                uid: tmpDate.getFullYear() + '_' + tmpDate.getMonth() + '_' + tmpDate.getDate()
-            })
-        }
-
-        currentWeekDay = currentDate.getDay();
-        currentDay = currentDate.getDate();
-
-        while (currentWeekDay < 5) {
-            let tmpDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), ++currentDay);
-            currentWeekDay++;
+        for (let i = 0; i < 5; i++) {
+            let tmpDate = new Date(date.getFullYear(), date.getMonth(), fday++);
+            tmpDate.setHours(0, 0, 0, 0);
             days.push({
                 number: tmpDate.getDate(),
-                current: false,
-                passed: tmpDate < date ? true : false,
+                current: tmpDate.getTime() === currentDate.getTime() ? true : false,
+                passed: tmpDate < currentDate ? true : false,
                 uid: tmpDate.getFullYear() + '_' + tmpDate.getMonth() + '_' + tmpDate.getDate()
 
             });
@@ -109,7 +87,7 @@ class App extends Component {
 
         rooms.forEach((item, index) => {
             roomsList.push(<Room data={item} key={index}/>);
-            daysList.push(<Days data={item} days={this.state.daysInMonth} key={index} index={index}/>)
+            daysList.push(<Days data={item} days={this.state.daysInWeek} key={index} index={index}/>)
         });
 
         return (
@@ -123,7 +101,7 @@ class App extends Component {
                 <div className="app__content">
                     <Switcher date={this.state.date} setDays={this.setDays.bind(this)}/>
                     <div className="app__content-calendar">
-                        <Names days={this.state.daysInMonth}/>
+                        <Names days={this.state.daysInWeek}/>
                         {daysList}
                     </div>
                 </div>
