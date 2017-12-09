@@ -6,10 +6,14 @@
   @media (max-width: 550px) {
     .room {
       padding: 15px; } }
+  @media (max-width: 400px) {
+    .room {
+      padding: 10px; } }
   @media (max-width: 750px) {
     .room__text {
       font-size: 10px;
-      writing-mode: tb-rl; } }
+      transform: rotate(90deg);
+      white-space: nowrap; } }
   @media (max-width: 1000px) {
     .room__text {
       font-size: 12px; } }

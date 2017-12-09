@@ -8,15 +8,24 @@
   padding: 5px 3px;
   box-sizing: border-box;
   text-align: center;
+  height: 28px;
 
   &:hover {
     background: #efefef;
   }
 
+  &_disabled {
+    cursor: not-allowed;
+    background: #efefef;
+
+    &:hover {
+      background: #efefef;
+    }
+  }
+
   &_reserved {
     background: #cbcbcb;
     color: #ffffff;
-    cursor: not-allowed;
 
     &:hover {
       background: #cbcbcb;
@@ -24,14 +33,6 @@
 
     .time__plus {
       display: none;
-    }
-  }
-
-  &_disabled {
-    cursor: not-allowed;
-
-    &:hover {
-      background: none;
     }
   }
 

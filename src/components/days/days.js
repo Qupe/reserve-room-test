@@ -5,7 +5,7 @@ import './days.css'
 class Days extends Component {
     render() {
         const daysList = this.props.days.map(day =>
-            <Day day={day} key={day.uid} room={this.props.data.id}/>
+            <Day day={day} date={this.props.date} key={day.uid} room={this.props.data.id}/>
         );
 
         return (

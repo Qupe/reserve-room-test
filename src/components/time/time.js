@@ -4,8 +4,7 @@ import './time.css'
 class Time extends Component {
     onTimeClickHandler() {
         if (!this.props.passed) {
-            this.setState({reserved: true});
-            this.props.setReserved(this.props.time)
+            this.props.toggleReserved(this.props.time)
         }
     }
 
@@ -22,7 +21,7 @@ class Time extends Component {
         return (
             <div className={className}
                  onClick={this.onTimeClickHandler.bind(this)}>
-                {this.props.time}
+                {this.props.time + ':00'}
                 {add}
             </div>
         );

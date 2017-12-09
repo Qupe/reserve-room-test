@@ -45,10 +45,25 @@ class App extends Component {
 
         let date = new Date();
 
+        this.dom = {};
         this.state = {
             date: date,
+            currentDate: date,
             daysInWeek: this.calcDays(date)
         };
+    }
+
+    componentDidMount() {
+        this.timer = setInterval(() => {
+                this.setState({
+                    currentDate: new Date()
+                });
+            }, 60000
+        );
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timer);
     }
 
     setDays(date) {
@@ -56,6 +71,7 @@ class App extends Component {
             date: date,
             daysInWeek: this.calcDays(date)
         });
+        this.dom.calendar.scrollLeft = 0;
     }
 
     calcDays(date) {
@@ -68,12 +84,14 @@ class App extends Component {
 
         for (let i = 0; i < 5; i++) {
             let tmpDate = new Date(date.getFullYear(), date.getMonth(), fday++);
+            let number = tmpDate.getDate();
+
             tmpDate.setHours(0, 0, 0, 0);
             days.push({
-                number: tmpDate.getDate(),
+                number: number,
                 current: tmpDate.getTime() === currentDate.getTime() ? true : false,
                 passed: tmpDate < currentDate ? true : false,
-                uid: tmpDate.getFullYear() + '_' + tmpDate.getMonth() + '_' + tmpDate.getDate()
+                uid: tmpDate.getFullYear() + '_' + tmpDate.getMonth() + '_' + number
 
             });
         }
@@ -87,7 +105,7 @@ class App extends Component {
 
         rooms.forEach((item, index) => {
             roomsList.push(<Room data={item} key={index}/>);
-            daysList.push(<Days data={item} days={this.state.daysInWeek} key={index} index={index}/>)
+            daysList.push(<Days data={item} date={this.state.currentDate} days={this.state.daysInWeek} key={index}/>)
         });
 
         return (
@@ -100,7 +118,7 @@ class App extends Component {
                 </div>
                 <div className="app__content">
                     <Switcher date={this.state.date} setDays={this.setDays.bind(this)}/>
-                    <div className="app__content-calendar">
+                    <div className="app__content-calendar" ref={(element) => {this.dom.calendar = element}}>
                         <Names days={this.state.daysInWeek}/>
                         {daysList}
                     </div>

@@ -8,39 +8,38 @@ class Day extends Component {
 
         this.uid = props.room + '_' + props.day.uid;
         this.state = {
-            '09:00': false,
-            '10:00': false,
-            '11:00': false,
-            '12:00': false,
-            '13:00': false,
-            '14:00': false,
-            '15:00': false,
-            '16:00': false,
-            '17:00': false,
-            '18:00': false
+            '9': false,
+            '10': false,
+            '11': false,
+            '12': false,
+            '13': false,
+            '14': false,
+            '15': false,
+            '16': false,
+            '17': false,
+            '18': false
         };
     }
 
     getReserved() {
-        let tmpState = this.state;
-
-        tmpState = Object.assign(tmpState, JSON.parse(localStorage.getItem(this.uid)));
-        this.setState(tmpState);
+        return JSON.parse(localStorage.getItem(this.uid)) || {};
     }
 
     componentDidMount() {
-        this.getReserved();
+        this.setState(this.getReserved());
+        this.time = this.props.date.getHours();
     }
 
-    setReserved(time) {
-        let tmpObj = {};
-        let tmpState = this.state;
+    componentWillReceiveProps(nextProps) {
+        this.time = nextProps.date.getHours();
+    }
 
-        tmpObj[time] = true;
-        tmpState = Object.assign(tmpState, tmpObj);
+    toggleReserved(time) {
+        let reserved = this.getReserved();
 
-        this.setState(tmpState);
-        localStorage.setItem(this.uid, JSON.stringify(tmpState));
+        reserved[time] ? reserved[time] = false : reserved[time] = true;
+        localStorage.setItem(this.uid, JSON.stringify(reserved));
+        this.setState(reserved);
     }
 
     render() {
@@ -49,9 +48,9 @@ class Day extends Component {
         const timeList = Object.keys(this.state).map(index =>
             <Time time={index}
                   key={index}
-                  passed={passed}
+                  passed={passed || (this.time > +index && this.props.day.current)}
                   reserved={this.state[index]}
-                  setReserved={this.setReserved.bind(this)}
+                  toggleReserved={this.toggleReserved.bind(this)}
             />
         );
 

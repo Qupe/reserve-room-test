@@ -5,9 +5,8 @@
   width: 20%;
   float: left;
   box-sizing: border-box;
-  border-left: 1px solid #e4e4e4;
-  border-bottom: 1px solid #e4e4e4;
-  border-top: 1px solid #e4e4e4;
+  border: 1px solid #e4e4e4;
+  border-right: 0;
 
   @media ($larger-than-tablet) {
     float: none;
@@ -25,6 +24,6 @@
   }
 
   &_disabled {
-    background: #efefef6e;
+    background: #efefef;
   }
 }

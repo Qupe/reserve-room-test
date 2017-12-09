@@ -10,10 +10,15 @@
     padding: 15px;
   }
 
+  @media ($larger-than-mobile) {
+    padding: 10px;
+  }
+
   &__text {
     @media ($larger-than-tablet) {
       font-size: 10px;
-      writing-mode: tb-rl;
+      transform: rotate(90deg);
+      white-space: nowrap;
     }
 
     @media ($larger-than-desktop) {

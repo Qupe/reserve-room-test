@@ -1,6 +1,21 @@
 import React, {Component} from 'react';
 import './switcher.css'
 
+const months = [
+    'январь',
+    'февраль',
+    'март',
+    'апрель',
+    'май',
+    'июнь',
+    'июль',
+    'август',
+    'сентябрь',
+    'октябрь',
+    'ноябрь',
+    'декабрь',
+];
+
 class Switcher extends Component {
 
     constructor(props) {
@@ -27,7 +42,7 @@ class Switcher extends Component {
     }
 
     formatTitle(date) {
-        return date.toLocaleString('ru', {month: 'long'}) + ' ' + date.getFullYear();
+        return months[date.getMonth()] + ' ' + date.getFullYear();
     }
 
     render() {

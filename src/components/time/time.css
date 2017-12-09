@@ -5,20 +5,21 @@
   white-space: nowrap;
   padding: 5px 3px;
   box-sizing: border-box;
-  text-align: center; }
+  text-align: center;
+  height: 28px; }
   .time:hover {
     background: #efefef; }
+  .time_disabled {
+    cursor: not-allowed;
+    background: #efefef; }
+    .time_disabled:hover {
+      background: #efefef; }
   .time_reserved {
     background: #cbcbcb;
-    color: #ffffff;
-    cursor: not-allowed; }
+    color: #ffffff; }
     .time_reserved:hover {
       background: #cbcbcb; }
     .time_reserved .time__plus {
       display: none; }
-  .time_disabled {
-    cursor: not-allowed; }
-    .time_disabled:hover {
-      background: none; }
   .time:nth-child(odd) {
     float: left; }
